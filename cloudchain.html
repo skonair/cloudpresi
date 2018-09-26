@@ -54,51 +54,67 @@
 					<section>
 						<h2>A game</h2>
 						<pre><code class="hljs" data-trim data-noexscape>
-{game: 'Show a game here'}
+ { 
+   "team1": { "players": [ "Alice", "Bob" ] }, 
+   "team2": { "players": [ "Eve", "Mallory" ] }, 
+   "score": { "goals1": 10, "goals2": 4 }, 
+   "signature": "a77d1cf2371b489facbf053e01955caec8a9e7379b202f6d38f782a01bf54868", 
+   "transactionId": "aa1667c89cd9fd9ba4015d2c6d422acaea991c606c511d926aeffe002f195c42" 
+}
 						</code></pre>
 					</section>	
 					<section>
 						<h2>A block</h2>
 						<pre><code class="hljs" data-trim data-noexscape>
-{game: 'Show a block here'}
+ {
+   "index": 1, 
+   "timestamp": "2018-09-26T06:05:46.926Z", 
+   "previousHash": "24a1c491b49155afcaa5219be37986745c8a842054e20897bfd1dfa85f19c0dc", 
+   "content": [ ...some games... ], 
+   "proof": 40663 
+}
 						</code></pre>
 					</section>
 					<section>
+						<h2>Architecture</h2>
+						<p>Insert diagram here</p>
+					</section>
+					<section>
 						<h2>Full Node</h2>
-						<pre><code class="hljs" data-trim data-noescape>
-function linkify( selector ) {
-  if( supports3DTransforms ) {
-
-    var nodes = document.querySelectorAll( selector );
-
-    for( var i = 0, len = nodes.length; i &lt; len; i++ ) {
-      var node = nodes[i];
-
-      if( !node.className ) {
-        node.className += ' roll';
-      }
-    }
-  }
-}
-					</code></pre>
+						<p>
+							Holds the complete blockchain.
+							Receives game requests from clients.
+							Communicates with miners.
+						</p>
 					</section>
 					<section>
 						<h2>Mining Node</h2>
+						<p>
+							Computes the Proof of Work (PoW) for games.
+							Communicates with Full Nodes.
+						</p>
 					</section>
 				</section>
 
 				<section>
 					<section>
 						<h2>Why cloud?</h2>
+						<p>Web of Trust</p>
+						<p>Value of distributed ledger comes from distribution</p>
 					</section>
 					<section>
 						<h2>Docker</h2>
+						<p>Widely used</p>
+						<p>Prerequisite for Kubernetes (at time of writing)</p>
 					</section>
 					<section>
 						<h2>Kubernetes</h2>
+						<p>Well... why not?</p>
 					</section>
 					<section>
 						<h2>Stateful Services</h2>
+						<p>Specific challenges for database</p>
+						<p>Not (necessarily) required here</p>
 					</section>
 					<section>
 						<h2>Pitfalls</h2>
