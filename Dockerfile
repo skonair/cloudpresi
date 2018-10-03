@@ -1,6 +1,8 @@
 from alpine:latest
 
-run apk update && apk add nodejs
+run apk update 
+run apk add nodejs
+run apk add nodejs-current-npm
 run npm i -g http-server
 
 workdir /home
