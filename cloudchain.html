@@ -28,35 +28,59 @@
 
 				<section>
 					<h2>Kicker - the domain</h2>
+					<aside class="notes">
+Hintergrund: 
+- Smartlab
+- beschaemende Kicker-Regel
+					</aside>
 				</section>
 
 				<section>
 					<section>
 						<h2>Blockchain</h2>
-						<p>A blockchain is a growing list of records, called blocks, which are linked using cryptography.</p>
+					</section>
+
+					<section data-background-image="./images/jackiechan.jpg">
+					<aside class="notes">
+Warum Blockchain? Ist das wirklich notwendig? Prominente ihre Meinung sagen.
+					</aside>
 					</section>
 					<section>
-						<h2>Technology</h2>
-					</section>
-					<section>
-						<h2>Full Node</h2>
 						<p>
-							Holds the complete blockchain.
-							Receives game requests from clients.
-							Communicates with miners.
+						"The consequences of this breakthrough are hard to overstate." -- Marc Andreesen
 						</p>
 					</section>
 					<section>
-						<h2>Mining Node</h2>
 						<p>
-							Computes the Proof of Work (PoW) for games.
-							Communicates with Full Nodes.
+						"Distributed ledger technologies offer institutions a once-in-a-generation opportunity to transform the industry to their benefit, or not." -- PWC report
+						</p>
+					</section>
+					<section>						
+						<p>
+						"There's some really good technology in terms of sharing databases and verifying transactions that is talked about as blockchain, that is a good thing." -- Bill Gates
+						</p>
+					</section>
+					<section>
+						<p>
+						"What the internet did for communications I think blockchain will do for trusted transactions." -- Ginni Rometty (CEO IBM)
+						</p>
+					</section>
+					<section>
+						<p>
+						"There is technology becoming available (...) I don't claim to be an expert on it but the most obvious technology is blockchain," -- Phillip Hammond (British finance minister, when asked about how the government could achieve smooth trade after Brexit)
 						</p>
 					</section>
 
-					<section>
-						<h2>Distributed ledger</h2>
+					<section data-background-image="./images/Wat8.jpg" >
 					</section>
+
+
+					<section>
+						<h2>Blockchain</h2>
+						<p>A blockchain is a growing list of records, called blocks, which are linked using cryptography.</p>							
+					</section>
+
+
 					<section>
 						<h2>Kicker and blockchain</h2>
 						<p>Ledger</p>
@@ -67,6 +91,33 @@
 					<section>
 						<h2>Kickchain</h2>
 					</section>
+
+
+					<section data-background-color="#ffffff" data-background-image="./images/overview.jpg" data-background-size="800px">
+					</section>
+
+					<section>
+						<h2>Full Node</h2>
+						<p>
+							Holds the complete blockchain.
+							Receives game requests from clients.
+							Communicates with other full nodes and miners.
+						</p>
+					</section>
+					<section>
+						<h2>Mining Node</h2>
+						<p>
+							Computes the Proof of Work (PoW) for games.
+							Communicates with Full Nodes.
+						</p>
+					</section>
+
+					<section data-background-image="./images/Kickchain-Server-2.png" data-background-size="800px">
+						<aside class="notes">
+Full- und Mining Node zusammen - Bereits als Komponente getrennt - Der Einfachheit halber zusammen
+						</aside>
+					</section>
+
 					<section>
 						<h2>A game</h2>
 						<pre><code class="hljs" data-trim data-noexscape>
@@ -78,6 +129,9 @@
    "transactionId": "aa1667c89cd9fd9ba4015d2c6d422acaea991c606c511d926aeffe002f195c42" 
 }
 						</code></pre>
+						<aside class="notes">
+Ein Spiel enthaelt die relevanten Daten - Die Signatur kennzeichnet den Sender des Spiels
+						</aside>
 					</section>	
 					<section>
 						<h2>A block</h2>
@@ -90,14 +144,25 @@
    "proof": 40663 
 }
 						</code></pre>
-					</section>
-					<section data-background-image="./images/Kickchain-Server-2.png" data-background-size="800px">
-						<h2>Architecture</h2>
-						<p>Insert diagram here</p>
+						<aside class="notes">
+Der Block enthaelt Spiel(e)	- Plus kryptografische Daten						
+						</aside>
 					</section>
 				</section>
 
+
+
 				<section>
+					<section>
+						<h2>Cloud</h2>
+					</section>
+
+					<section data-background-image="./images/jackiechan.jpg">
+					<aside class="notes">
+Warum Cloud? Ist das wirklich notwendig? 
+					</aside>
+					</section>
+
 					<section>
 						<h2>Why cloud?</h2>
 						<p>Web of Trust</p>
@@ -121,6 +186,7 @@
 						<h2>Pitfalls</h2>
 						<p>Money!!!</p>
 						<p>Database (Neo4j)</p>
+						<p>When does Cloud/K8s makes sense?</p>
 					</section>
 
 				</section>
