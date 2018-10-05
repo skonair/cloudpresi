@@ -188,8 +188,27 @@ Warum Cloud? Ist das wirklich notwendig?
 						<p>Prerequisite for Kubernetes (at time of writing)</p>
 					</section>
 					<section>
+						<h2>Live Demo</h2>
+						<p>Dockerize Application</p>
+						<aside class="notes">
+							FROM openjdk:8-jre-alpine
+							EXPOSE 8080
+							ADD target/kickchain-0.0.1-SNAPHOST.jar /kickchin.jar
+							ENTRYPOINT ["java" , "-jre", "/kickchain.jar"]
+
+							docker image build -f Dockerfile.mine -t skonair/kickchain.mine .
+							docker push skonair/kickchain.mine
+							docker run -p 8090:8080 kickchain.mine
+						</aside>
+					</section>
+					<section>
 						<h2>Kubernetes</h2>
-						<p>Well... why not?</p>
+						<p class="fragment grow">Production-Grade Container Orchestration</p>
+						<p class="fragment grow">Production-Grade Container Orchestration</p>
+						<aside class="notes">
+Kubernetes is an open-source system for automating deployment, scaling, and management of containerized applications.
+						</aside>
+
 					</section>
 
 					<section>
