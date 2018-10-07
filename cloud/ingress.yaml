@@ -1,0 +1,18 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: cloudpresi-ingress
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  backend:
+    serviceName: default-http-backend
+    servicePort: 80
+  rules:
+  - host: localhost   
+  - http:
+      paths:
+      - path: /cloudpresi
+        backend:
+          serviceName: cloudpresi-service
+          servicePort: 8080

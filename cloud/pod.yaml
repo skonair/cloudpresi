@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: cloudpresi
+spec:
+  containers:
+  - name: cloudpresei
+    image: skonair/cloudpresi:latest
+    ports:
+    - containerPort: 8080

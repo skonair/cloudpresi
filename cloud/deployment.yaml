@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cloudpresi-deployment
+  labels:
+    app: cloudpresi
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: cloudpresi
+  template:
+    metadata:
+      labels:
+        app: cloudpresi
+    spec:
+      containers:
+      - name: cloudpresi
+        image: skonair/cloudpresi:latest
+        ports:
+        - containerPort: 8080
