@@ -4,6 +4,8 @@
 		<link rel="stylesheet" href="css/theme/sky.css" id="theme">
 		<!-- Theme used for syntax highlighting of code -->
 		<link rel="stylesheet" href="lib/css/zenburn.css">
+		<!-- custom changes -->
+		<link rel="stylesheet" href="css/custom.css">
 
 		<!-- Printing and PDF exports -->
 		<script>
@@ -278,18 +280,24 @@ Der Block enthaelt Spiel(e)	- Plus kryptografische Daten
 -->
 
 					<section>
-						<h2>Storage</h2>
-
-						<p>JPA (e.g. H2 in-memory database)</p>
-					    <p>Neo4j</p>
-
+						<h2>Architecture</h2>
+						<p>
+							<img data-src="images/kcArch.png">
+						</p>
 					</section>
 
+					<section>
+						<h2>Storage</h2>
+						<ul>
+							<li>JPA (e.g. H2 in-memory database)</li>
+							<li>Neo4J</li>
+						</ul>
+					</section>
 
 					<section>
-						<h2>Neo4j</h2>
+						<h2>Neo4J</h2>
 						<p>
-							<a href="http://localhost:7474/browser/">Neo4j Browser</a>
+							<a href="http://localhost:7474/browser/">Neo4J Browser</a>
 						</p>
 						<pre><code class="hljs">
 $ docker run \
@@ -302,15 +310,6 @@ $ docker run \
 					</section>
 
 					<section data-background-image="./images/Kickchain-Server-2.png" data-background-size="800px">
-						<aside class="notes">
-Full- und Mining Node zusammen - Bereits als Komponente getrennt - Der Einfachheit halber zusammen
-						</aside>
-					</section>
-
-
-					<section>
-						<h2>In Memory</h2>
-						<p>Chain available as json object</p>
 					</section>
 
 				</section>
@@ -329,56 +328,184 @@ Warum Cloud? Ist das wirklich notwendig?
 					</section>
 
 					<section>
-						<h2>Why cloud?</h2>
-						<p>Web of Trust</p>
+						<h2>Why</h2>
 						<p>Value of distributed ledger comes from distribution</p>
+						<p>Quick and easy</p>
+						<p>CloudLab, you know?</p>
 					</section>
+
 					<section>
 						<h2>Docker</h2>
 						<p>Widely used</p>
 						<p>Prerequisite for Kubernetes (at time of writing)</p>
 					</section>
+
 					<section>
 						<h2>Live Demo</h2>
 						<p>Dockerize Application</p>
 						<aside class="notes">
 							FROM openjdk:8-jre-alpine
 							EXPOSE 8080
-							ADD target/kickchain-0.0.1-SNAPHOST.jar /kickchin.jar
-							ENTRYPOINT ["java" , "-jre", "/kickchain.jar"]
+							ADD target/kickchain-0.0.1-SNAPSHOT.jar /kickchain.jar
+							ENTRYPOINT ["java" , "-jre", "/kickchain.jar", "--database.type=jpa"]
 
 							docker image build -f Dockerfile.mine -t skonair/kickchain.mine .
 							docker push skonair/kickchain.mine
 							docker run -p 8090:8080 kickchain.mine
 						</aside>
 					</section>
+
 					<section>
-						<h2>Kubernetes</h2>
-						<p class="fragment grow">Production-Grade Container Orchestration</p>
+						<h2>Live Demo</h2>
+						<p>Synchronization of two nodes</p>
+						<aside class="notes">
+Life-Demo: Zwei Nodes synchronisieren sich. (In Docker eine Instanz hochfahren, zweite in IntelliJ. Zweite bekommt die erste als Sync. In erster Instanz neue Spiele eintragen.)
+						</aside>
+					</section>
+
+					<section>
+						<p>
+							<img data-src="images/2000px-Kubernetes_logo.svg.png">
+						</p>
 						<p class="fragment grow">Production-Grade Container Orchestration</p>
 						<aside class="notes">
 Kubernetes is an open-source system for automating deployment, scaling, and management of containerized applications.
+- Service discovery and load balancing (Kubernetes gives containers their own IP addresses and a single DNS name for a set of containers)
+- Automated rollouts and rollbacks
+- Self-healing (Restarts containers that fail, replaces and reschedules containers when nodes die, kills containers that don’t respond to your user-defined health check, and doesn’t advertise them to clients until they are ready to serve.)
+- Secret and configuration management
+- Horizontal scaling
 						</aside>
 
 					</section>
 
 					<section>
-						<h2>K8s advantages</h2>
+						<h2>Minikube</h2>
+						<p>
+							Minikube can be installed locally
+							Runs a single-node Kubernetes cluster inside a VM
+						</p>
+						<pre><code class="hljs">
+$ minikube start
+
+$ kubectl cluster-info
+
+$ minikube dashboard
+						</code></pre>
 					</section>
 
 					<section>
-						<h2>K8s disadvantages</h2>
+						<h2>Kubernetes Overview</h2>
+						<ul>
+							<li>Create a deployment</li>
+							<li>Create a service</li>
+							<li>Create an ingress</li>
+						</ul>
 					</section>
 
 					<section>
-						<h2>Stateful Services</h2>
+						<h2>Create a deployment</h2>
+						<pre><code class="hljs">
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kickchain-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: kickchain-demo
+  template:
+    metadata:
+      labels:
+        app: kickchain-demo
+    spec:
+      containers:
+      - name: kickchain-demo
+        image: skonair/kickchain-demo:latest
+        ports:
+        - containerPort: 8080
+        command: ["java"]
+        args:
+        - -Djava.security.egd=file:/dev/./urandom
+        - -jar
+        - /kickchain.jar
+        - --database.type=jpa							
+						</code></pre>
+						<aside class="notes">
+							kubectl create -f deployment-kickchain-local.yml
+						</aside>
+					</section>
+
+					<section>
+						<h2>Create a service</h2>
+						<pre><code class="hljs">
+apiVersion: v1
+kind: Service
+metadata:
+  name: kickchain-service
+spec:
+  ports:
+  - port: 8080
+    protocol: TCP
+    name: http
+  selector:
+    app: kickchain-demo
+  type: NodePort
+						</code></pre>
+						<aside class="notes">
+							kubectl create -f service-kickchain-local.yml
+						</aside>
+					</section>
+
+					<section>
+						<h2>Create an ingress</h2>
+						<pre><code>
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: kickchain-ingress
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  backend:
+    serviceName: default-http-backend
+    servicePort: 80
+  rules:
+  - host: localhost
+  - http:
+      paths:
+      - path: /kickchain
+        backend:
+          serviceName: kickchain-service
+          servicePort: 8080
+						</code></pre>
+						<aside class="notes">
+							minikube addons enable ingress
+
+							kubectl create -f ingress-kickchain-local.yml
+						</aside>
+					</section>
+
+					<section>
+						<h2>Life demo</h2>
+						<p>
+							<a href="https://192.168.99.100/kickchain/">https://192.168.99.100/kickchain/</a>
+						</p>
+					</section>
+
+
+					<section>
+						<h2>Stateful vs stateless services</h2>
 						<p>Specific challenges for database</p>
 						<p>Not (necessarily) required here</p>
 					</section>
 					
 					<section>
 						<h2>Pitfalls</h2>
-						<p>Money!!!</p>
+						<p>Bandwidth intense deployments</p>
+						<p>Technology stack can be confusing</p>
+						<p>Money(!)</p>
 						<p>Database (Neo4j)</p>
 						<p>When does Cloud/K8s makes sense?</p>
 					</section>
