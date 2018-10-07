@@ -26,35 +26,62 @@
 					</p>
 					<aside class="notes">
 Hintergrund: 
-- Smartlab
+- Smartlab, Neue Ideen ausprobieren, Hackathon
 					</aside>
 				</section>
 
-				<section data-transition="none-out">
-					<h2>Kicker / Foosball (A.E.)</h2>
-					<img data-src="images/foosball-2.png">
-					<aside class="notes">
-Kicker-Regeln: 
-					</aside>
-				</section>
+				<section>
 
-				<section  data-transition="none-in">
-					<h2>Kicker / Foosball (A.E.)</h2>
-					<img data-src="images/foosball-4.png">
-					<aside class="notes">
-- beschaemende Kicker-Regel
-					</aside>
-				</section>
+					<section>
+						<h2>Kicker / Foosball (A.E.)</h2>
+					</section>
 
+					<section data-transition="none-out">
+						<h2>Kicker / Foosball (A.E.)</h2>
+						<img data-src="images/foosball-2.png">
+						<aside class="notes">
+Kicker-Regeln: 2 oder 4 Spieler gegeneinander, es wird bis 10 gespielt
+						</aside>
+					</section>
+
+					<section  data-transition="none-in">
+						<h2>Kicker / Foosball (A.E.)</h2>
+						<img data-src="images/foosball-4.png">
+						<aside class="notes">
+Beschaemende Kicker-Regel bei 10:0
+						</aside>
+					</section>
+
+					<section data-background-video="videos/DasGrosseKrabbeln.mp4" data-background-video-muted>
+					</section>
+
+					<section>
+						<h2>Kickchain</h2>
+						<a href="http://localhost:8080/">http://localhost:8080/</a>
+						<aside class="notes">
+							Life-Demo zur Bedienung der Kickchain
+						</aside>
+					</section>
+
+					<section data-background-color="#ffffff" data-background-image="./images/overview.jpg" data-background-size="800px">
+						<aside class="notes">
+Kickchain nur der 'Storage-Teil'; coole andere Projekte; Teil eines JUG BI Vortrags							
+						</aside>
+					</section>
+
+				</section>
 
 				<section>
 					<section>
 						<h2>Blockchain</h2>
+						<aside class="notes">
+Wer hat schon mit einer Blockchain gearbeitet?
+						</aside>
 					</section>
 
 					<section data-background-image="./images/jackiechan.jpg">
 					<aside class="notes">
-Warum Blockchain? Ist das wirklich notwendig? Prominente sagen Meinung sagen.
+Warum Blockchain? Ist das wirklich notwendig? Mehrere Stimmen zur Blockchain Technologie.
 					</aside>
 					</section>
 					<section>
@@ -65,7 +92,7 @@ Warum Blockchain? Ist das wirklich notwendig? Prominente sagen Meinung sagen.
 						-- Marc Andreessen
 						</p>
 						<aside class="notes">
-Mitgründer von Mosaic/Netscape Comunications (ca. 1995), jetzt u.a. Mitgründer und Partner von VC Andreessen Horowitz						
+Mitgründer von Mosaic/Netscape Comunications (ca. 1995), jetzt u.a. Mitgründer und Partner von VC Andreessen Horowitz; overstate = überbewertet werden					
 						</aside>
 					</section>
 					<section>
@@ -75,6 +102,9 @@ Mitgründer von Mosaic/Netscape Comunications (ca. 1995), jetzt u.a. Mitgründer
 						<p style="text-align: right;">
 						-- PWC report
 					 	</p>
+					 	<aside class="notes">
+distributed ledger = dezentral gefuehrte Kontobuecher; Transaktionsdatenbank. Bsp fuer deren verwaltetet Daten: Kontostand einer Bitcoin Adresse, Zustand eines Smart Contracts, Herkunft von Waren"
+						</aside>
 					</section>
 					<section>
 						<p>
@@ -84,7 +114,7 @@ Mitgründer von Mosaic/Netscape Comunications (ca. 1995), jetzt u.a. Mitgründer
 						-- Ginni Rometty
 						</p>
 						<aside class="notes">
-							 CEO IBM
+							 CEO IBM, trusted ist der wichtige Teil
 						</aside>
 					</section>
 					<section>
@@ -104,7 +134,7 @@ Mitgründer von Mosaic/Netscape Comunications (ca. 1995), jetzt u.a. Mitgründer
 						-- Phillip Hammond					
 						</p>
 						<aside class="notes">
-British finance minister, when asked about how the government could achieve smooth trade after Brexit
+British finance minister, when asked about how the government could achieve smooth trade (reibungslosen Handel) after Brexit
 						</aside>
 					</section>
 
@@ -113,16 +143,123 @@ British finance minister, when asked about how the government could achieve smoo
 
 					<section>
 						<h2>Blockchain</h2>
-						<p>A blockchain is a growing list of records, called blocks, which are linked using cryptography.</p>							
+						<p>
+							A blockchain is a growing list of records, called blocks, which are linked using cryptography.
+						</p>
+						<p style="text-align: right;"> 	
+							-- wikipedia.org
+						</p>
+
+						<aside class="notes">
+Pen and Paper: Beispiel von Spielen
+						</aside>
+							
 					</section>
 
 					<section>
-						<h2>Kickchain</h2>
+						<h2>A game</h2>
+						<pre><code class="hljs" data-trim data-noexscape>
+ { 
+   "team1": { "players": [ "Alice", "Bob" ] }, 
+   "team2": { "players": [ "Eve", "Mallory" ] }, 
+   "score": { "goals1": 10, "goals2": 4 }, 
+   "signature": "a77d1cf2371b489facbf053e01955caec8a9e7379b202f6d38f782a01bf54868" 
+}
+						</code></pre>
+						<aside class="notes">
+Ein Spiel enthaelt die relevanten Daten - Die Signatur kennzeichnet den Sender des Spiels. 
+
+						</aside>
+					</section>	
+
+					<section>
+						<h2>A block</h2>
+						<pre><code class="hljs" data-trim data-noexscape>
+{
+      "header": {
+        "index": 1,
+        "timestamp": "2018-10-07T17:32:14.867Z",
+        "transactionHash": "d7fabd9dcc8ef2d00699ede532d157bb242f5b0031981d97082aee64536d4c80",
+        "previousHash": "b256190643cb1598c41069d6d0704e235d027e5582daf71c9d1a046e71301e90",
+        "proof": 40663
+      },
+      "content": [ ... list of games ... ]
+}							
+						</code></pre>
+						<aside class="notes">
+Der Block enthaelt Spiel(e)	- Plus kryptografische Daten
+						</aside>
 					</section>
 
-					<section data-background-color="#ffffff" data-background-image="./images/overview.jpg" data-background-size="800px">
+					<section>
+						<h2>A chain of blocks</h2>
+						<pre><code class="hljs" data-trim data-noescape>
+{
+  "name": "Kickchain",
+  "chain": [
+    {
+      "header": {
+        "index": 0,
+        "timestamp": null,
+        "transactionHash": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b",
+        "previousHash": null,
+        "proof": 100
+      },
+      "content": []
+    },
+    {
+      "header": {
+        "index": 1,
+        "timestamp": "2018-10-07T17:32:14.867Z",
+        "transactionHash": "d7fabd9dcc8ef2d00699ede532d157bb242f5b0031981d97082aee64536d4c80",
+        "previousHash": "b256190643cb1598c41069d6d0704e235d027e5582daf71c9d1a046e71301e90",
+        "proof": 40663
+      },
+      "content": [
+        {
+          "team1": { "players": [ "Alice", "Bob" ] },
+          "team2": { "players": [ "Eve", "Mallory" ] },
+          "score": { "goals1": 1, "goals2": 10 },
+          "signature": null
+        }
+      ]
+    },
+    {
+      "header": {
+        "index": 2,
+        "timestamp": "2018-10-07T17:44:04.801Z",
+        "transactionHash": "8041052671ec8d67ebbe5b1c50661a384166d8ec76fa980c9d26d0266cbf5d2b",
+        "previousHash": "0f1f7a34842b89e39e4458f6c29cf736e4be98b789533c287d7fb4486216f3e7",
+        "proof": 121820
+      },
+      "content": [
+        {
+          "team1": { "players": [ "Dennis", "Darius" ] },
+          "team2": { "players": [ "Tobias", "Ruben" ] },
+          "score": { "goals1": 0, "goals2": 10 },
+          "signature": null
+        }
+      ]
+    }
+  ]
+}						</code></pre>
+
+						<aside class="notes">
+
+						</aside>
 					</section>
 
+					<section>
+						<h2>A chain of blocks</h2>
+						<p>
+							Chain available as json object
+						</p>
+						<p>
+							<a href="http://localhost:8080/chain">http://localhost:8080/chain</a>
+						</p>
+					</section>
+
+<!--
 					<section>
 						<h2>Full Node</h2>
 						<p>
@@ -138,6 +275,31 @@ British finance minister, when asked about how the government could achieve smoo
 							Communicates with Full Nodes.
 						</p>
 					</section>
+-->
+
+					<section>
+						<h2>Storage</h2>
+
+						<p>JPA (e.g. H2 in-memory database)</p>
+					    <p>Neo4j</p>
+
+					</section>
+
+
+					<section>
+						<h2>Neo4j</h2>
+						<p>
+							<a href="http://localhost:7474/browser/">Neo4j Browser</a>
+						</p>
+						<pre><code class="hljs">
+$ docker run \
+      --publish=7474:7474 --publish=7687:7687 \
+      --volume=$HOME/neo4j/data:/data \
+      --volume=$HOME/neo4j/logs:/logs \
+      neo4j:3.4						
+  						</code></pre>
+
+					</section>
 
 					<section data-background-image="./images/Kickchain-Server-2.png" data-background-size="800px">
 						<aside class="notes">
@@ -145,55 +307,6 @@ Full- und Mining Node zusammen - Bereits als Komponente getrennt - Der Einfachhe
 						</aside>
 					</section>
 
-					<section>
-						<h2>A game</h2>
-						<pre><code class="hljs" data-trim data-noexscape>
- { 
-   "team1": { "players": [ "Alice", "Bob" ] }, 
-   "team2": { "players": [ "Eve", "Mallory" ] }, 
-   "score": { "goals1": 10, "goals2": 4 }, 
-   "signature": "a77d1cf2371b489facbf053e01955caec8a9e7379b202f6d38f782a01bf54868", 
-   "transactionId": "aa1667c89cd9fd9ba4015d2c6d422acaea991c606c511d926aeffe002f195c42" 
-}
-						</code></pre>
-						<aside class="notes">
-Ein Spiel enthaelt die relevanten Daten - Die Signatur kennzeichnet den Sender des Spiels. 
-Regie: Spiel auf Karte erstellen und verteilen.
-						</aside>
-					</section>	
-
-					<section>
-						<h2>A block</h2>
-						<pre><code class="hljs" data-trim data-noexscape>
- {
-   "index": 1, 
-   "timestamp": "2018-09-26T06:05:46.926Z", 
-   "previousHash": "24a1c491b49155afcaa5219be37986745c8a842054e20897bfd1dfa85f19c0dc", 
-   "content": [ ...some games... ], 
-   "proof": 40663 
-}
-						</code></pre>
-						<aside class="notes">
-Der Block enthaelt Spiel(e)	- Plus kryptografische Daten
-Regie: eine Karte unterschreiben / hashen						
-						</aside>
-					</section>
-
-					<section>
-						<h2>A chain of blocks</h2>
-
-						<aside class="notes">
-Regie: zweite Karte unterschreiben / hashen + abstempeln							
-						</aside>
-					</section>
-
-					<section>
-						<h2>Storage</h2>
-					</section>
-
-					<section>
-						<h2>Neo4j</h2>
-					</section>
 
 					<section>
 						<h2>In Memory</h2>
@@ -270,6 +383,16 @@ Kubernetes is an open-source system for automating deployment, scaling, and mana
 						<p>When does Cloud/K8s makes sense?</p>
 					</section>
 
+				</section>
+
+				<section>
+					<h2>Join us</h2>
+					<p>
+						<img data-src="images/logo_javaland.png">
+					</p>
+					<p>
+						<a href="https://programm.javaland.eu/2019/#/scheduledEvent/569221">Kickchain - Kickerergebnisse in der Blockchain</a>
+					</p>
 				</section>
 
 			</div>
