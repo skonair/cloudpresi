@@ -27,8 +27,7 @@
 						<small>Created by <a href="mailto:koch@smartsquare.de">Sascha Koch</a></small>
 					</p>
 					<aside class="notes">
-Hintergrund: 
-- Smartlab, Neue Ideen ausprobieren, Hackathon
+Hintergrund: Smartlab, Neue Ideen ausprobieren, Hackathon
 					</aside>
 				</section>
 
@@ -36,6 +35,9 @@ Hintergrund:
 
 					<section>
 						<h2>Kicker / Foosball (A.E.)</h2>
+						<aside class="notes">
+Hintergrund: Blockchain für ein Kickerspiel, Aufbau eines Kickerspiels
+						</aside>
 					</section>
 
 					<section data-transition="none-out">
@@ -50,7 +52,7 @@ Kicker-Regeln: 2 oder 4 Spieler gegeneinander, es wird bis 10 gespielt
 						<h2>Kicker / Foosball (A.E.)</h2>
 						<img data-src="images/foosball-4.png">
 						<aside class="notes">
-Beschaemende Kicker-Regel bei 10:0
+Beschaemende Kicker-Regel bei 10:0; nichts für schwache Nerven
 						</aside>
 					</section>
 
@@ -61,7 +63,7 @@ Beschaemende Kicker-Regel bei 10:0
 						<h2>Kickchain</h2>
 						<a href="http://localhost:8080/">http://localhost:8080/</a>
 						<aside class="notes">
-							Life-Demo zur Bedienung der Kickchain
+							Live Demo zur Bedienung der Kickchain
 						</aside>
 					</section>
 
@@ -77,7 +79,7 @@ Kickchain nur der 'Storage-Teil'; coole andere Projekte; Teil eines JUG BI Vortr
 					<section>
 						<h2>Blockchain</h2>
 						<aside class="notes">
-Wer hat schon mit einer Blockchain gearbeitet?
+Wer hat schon mit einer Blockchain gearbeitet? Welche Blockchain Technologien sind bekannt?
 						</aside>
 					</section>
 
@@ -86,6 +88,7 @@ Wer hat schon mit einer Blockchain gearbeitet?
 Warum Blockchain? Ist das wirklich notwendig? Mehrere Stimmen zur Blockchain Technologie.
 					</aside>
 					</section>
+
 					<section>
 						<p>
 						"The consequences of this breakthrough are hard to overstate." 
@@ -94,9 +97,10 @@ Warum Blockchain? Ist das wirklich notwendig? Mehrere Stimmen zur Blockchain Tec
 						-- Marc Andreessen
 						</p>
 						<aside class="notes">
-Mitgründer von Mosaic/Netscape Comunications (ca. 1995), jetzt u.a. Mitgründer und Partner von VC Andreessen Horowitz; overstate = überbewertet werden					
+Mitgründer von Mosaic/Netscape Comunications (ca. 1995), jetzt u.a. Mitgründer und Partner von VC Andreessen Horowitz; overstate = überbewertet werden; wenig konkretes
 						</aside>
 					</section>
+
 					<section>
 						<p>
 						"Distributed ledger technologies offer institutions a once-in-a-generation opportunity to transform the industry to their benefit, or not."
@@ -105,9 +109,10 @@ Mitgründer von Mosaic/Netscape Comunications (ca. 1995), jetzt u.a. Mitgründer
 						-- PWC report
 					 	</p>
 					 	<aside class="notes">
-distributed ledger = dezentral gefuehrte Kontobuecher; Transaktionsdatenbank. Bsp fuer deren verwaltetet Daten: Kontostand einer Bitcoin Adresse, Zustand eines Smart Contracts, Herkunft von Waren"
+distributed ledger = dezentral gefuehrte Kontobuecher; Transaktionsdatenbank. Bsp fuer deren verwaltetete Daten: Kontostand einer Bitcoin Adresse, Zustand eines Smart Contracts, Herkunft von Waren"
 						</aside>
 					</section>
+
 					<section>
 						<p>
 						"What the internet did for communications I think blockchain will do for trusted transactions."
@@ -119,6 +124,7 @@ distributed ledger = dezentral gefuehrte Kontobuecher; Transaktionsdatenbank. Bs
 							 CEO IBM, trusted ist der wichtige Teil
 						</aside>
 					</section>
+
 					<section>
 						<p>
 						"There's some really good technology in terms of sharing databases and verifying transactions that is talked about as blockchain, that is a good thing."
@@ -126,7 +132,11 @@ distributed ledger = dezentral gefuehrte Kontobuecher; Transaktionsdatenbank. Bs
 						<p style="text-align: right;"> 
 						-- Bill Gates
 						</p>
+						<aside class="notes">
+Next slide: British finance minister, when asked about how the government could achieve smooth trade (reibungslosen Handel) after Brexit
+						</aside>
 					</section>
+
 					<section>
 						<p>
 						"There is technology becoming available (...) I don't claim to be an expert on it but the most obvious technology is blockchain." 
@@ -136,7 +146,7 @@ distributed ledger = dezentral gefuehrte Kontobuecher; Transaktionsdatenbank. Bs
 						-- Phillip Hammond					
 						</p>
 						<aside class="notes">
-British finance minister, when asked about how the government could achieve smooth trade (reibungslosen Handel) after Brexit
+British finance minister, when asked about how the government could achieve smooth trade (reibungslosen Handel) after Brexit. - Viele Stimmen... ist jetzt klar was eine Blockchain ist? 
 						</aside>
 					</section>
 
@@ -328,16 +338,20 @@ Warum Cloud? Ist das wirklich notwendig?
 					</section>
 
 					<section>
-						<h2>Why</h2>
-						<p>Value of distributed ledger comes from distribution</p>
-						<p>Quick and easy</p>
-						<p>CloudLab, you know?</p>
+						<h2>Why Cloud?</h2>
+						<ul>
+							<li>Value of blockchain comes from distribution</li>
+							<li>Quick and easy</li>
+							<li>CloudLab, you know?</li>
+						</ul>
 					</section>
 
 					<section>
 						<h2>Docker</h2>
-						<p>Widely used</p>
-						<p>Prerequisite for Kubernetes (at time of writing)</p>
+						<ul>
+							<li>Widely used</li>
+							<li>Prerequisite for Kubernetes (at time of writing)</li>
+						</ul>
 					</section>
 
 					<section>
@@ -349,9 +363,9 @@ Warum Cloud? Ist das wirklich notwendig?
 							ADD target/kickchain-0.0.1-SNAPSHOT.jar /kickchain.jar
 							ENTRYPOINT ["java" , "-jre", "/kickchain.jar", "--database.type=jpa"]
 
-							docker image build -f Dockerfile.mine -t skonair/kickchain.mine .
-							docker push skonair/kickchain.mine
-							docker run -p 8090:8080 kickchain.mine
+							docker image build -f Dockerfile.mine -t skonair/kickchain-demo .
+							docker push skonair/kickchain-demo
+							docker run -p 8090:8080 kickchain-demo
 						</aside>
 					</section>
 
@@ -359,7 +373,7 @@ Warum Cloud? Ist das wirklich notwendig?
 						<h2>Live Demo</h2>
 						<p>Synchronization of two nodes</p>
 						<aside class="notes">
-Life-Demo: Zwei Nodes synchronisieren sich. (In Docker eine Instanz hochfahren, zweite in IntelliJ. Zweite bekommt die erste als Sync. In erster Instanz neue Spiele eintragen.)
+Live-Demo: Zwei Nodes synchronisieren sich. (In Docker eine Instanz hochfahren, zweite in IntelliJ. Zweite bekommt die erste als Sync. In erster Instanz neue Spiele eintragen.)
 						</aside>
 					</section>
 
@@ -381,10 +395,10 @@ Kubernetes is an open-source system for automating deployment, scaling, and mana
 
 					<section>
 						<h2>Minikube</h2>
-						<p>
-							Minikube can be installed locally
-							Runs a single-node Kubernetes cluster inside a VM
-						</p>
+						<ul>
+							<li>Minikube can be installed locally</li>
+							<li>Runs a single-node Kubernetes cluster inside a VM</li>
+						</ul>
 						<pre><code class="hljs">
 $ minikube start
 
@@ -488,12 +502,11 @@ spec:
 					</section>
 
 					<section>
-						<h2>Life demo</h2>
+						<h2>Live demo</h2>
 						<p>
 							<a href="https://192.168.99.100/kickchain/">https://192.168.99.100/kickchain/</a>
 						</p>
 					</section>
-
 
 					<section>
 						<h2>Stateful vs stateless services</h2>
@@ -505,7 +518,7 @@ spec:
 						<h2>Pitfalls</h2>
 						<p>Bandwidth intense deployments</p>
 						<p>Technology stack can be confusing</p>
-						<p>Money(!)</p>
+						<p>Money <a href="https://cloud.google.com/products/calculator/">GC Pricing Calculator</a></p>
 						<p>Database (Neo4j)</p>
 						<p>When does Cloud/K8s makes sense?</p>
 					</section>
